@@ -1,6 +1,6 @@
-# 📚 Student Management System
+# 📚 Node_React_CRUD
 
-A robust Node.js application designed to efficiently manage student records. Utilizing Express for the backend, MySQL for database management, and React for the frontend interface, this system facilitates CRUD operations with seamless CORS handling and environment variable management.
+A robust Node.js application designed to efficiently test for various Purpose. Utilizing Express for the backend, MySQL for database management, and React for the frontend interface, this system facilitates CRUD operations with seamless CORS handling and environment variable management.
 
 ## 📋 Table of Contents
 
@@ -17,13 +17,13 @@ A robust Node.js application designed to efficiently manage student records. Uti
 
 ### Clone the Repository
 
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">git</span><span> clone https://github.com/yourusername/student-management-system.git
-</span><span></span><span class="token">cd</span><span> student-management-system
+<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">git</span><span> clone https://github.com/soocrates/Node_React_CRUD.git
+</span><span></span><span class="token">cd</span><span> Node_React_CRUD
 </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
 
 ### Install Backend Dependencies
 
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">npm</span><span></span><span class="token">install</span><span>
+<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">npm</span><span></span><span class="token"> install</span><span>
 </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
 
 ### Navigate to the Frontend Directory
@@ -31,18 +31,18 @@ A robust Node.js application designed to efficiently manage student records. Uti
 Assuming the frontend is located in `frontend/`:
 
 <pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">cd</span><span> frontend
-</span><span></span><span class="token">npm</span><span></span><span class="token">install</span><span>
+</span><span></span><span class="token">npm </span><span></span><span class="token">install</span><span>
 </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
 
 ## 🔧 Environment Variables
 
 Create a `.env` file in the root of your project and define the following environment variables:
 
-<pre><div class="mt-3 p-1"><div><code class="language-plaintext"><span>DB_HOST=database-1.cf4cy0g6mpc4.us-east-1.rds.amazonaws.com
-</span>DB_USER=ugra
-DB_PASSWORD=ugra3194
-DB_NAME=node_crud
-DB_PORT=3306
+<pre><div class="mt-3 p-1"><div><code class="language-plaintext"><span>DB_HOST=
+</span>DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DB_PORT=
 APP_PORT=3000
 </code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
 
@@ -50,8 +50,7 @@ APP_PORT=3000
 
 ### Start the Backend Server
 
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">npm</span><span> start
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
+<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">npm</span><span> start </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
 
 ### Start the Frontend Development Server
 
