@@ -2,65 +2,93 @@
 
 A robust Node.js application designed to efficiently test for various Purpose. Utilizing Express for the backend, MySQL for database management, and React for the frontend interface, this system facilitates CRUD operations with seamless CORS handling and environment variable management.
 
-## 📋 Table of Contents
+## Tech Stack
 
-* [📦 Installation](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#installation)
-* [🔧 Environment Variables](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#environment-variables)
-* [🚀 Running the Application](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#running-the-application)
-* [🌐 Backend Endpoints](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#backend-endpoints)
-* [💻 Frontend Components](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#frontend-components)
-* [📚 Dependencies](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#dependencies)
-* [🛠️ Contributing](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#contributing)
-* [⚙️ License](https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd#license)
+**Client:** React, Bootstrap
+
+**Server:** Node, Express
+
+**Database:** MYSQL
 
 ## 📦 Installation
 
-### Clone the Repository
+Before installing check Nodejs  `preferred Node Version v22.2.0`  on your system, MYSQL Database (if using local)
 
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">git</span><span> clone https://github.com/soocrates/Node_React_CRUD.git
-</span><span></span><span class="token">cd</span><span> Node_React_CRUD
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
+```bash
+    git clone https://github.com/soocrates/Node_React_CRUD.git 
+    cd Node_React_CRUD
+```
 
-### Install Backend Dependencies
+**File Structure:**  After cloning you see `frontend` and `backend` directory and overall project will look like this
 
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">npm</span><span></span><span class="token"> install</span><span>
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
-
-### Navigate to the Frontend Directory
-
-Assuming the frontend is located in `frontend/`:
-
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">cd</span><span> frontend
-</span><span></span><span class="token">npm </span><span></span><span class="token">install</span><span>
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
+```
+    soocrates@ubuntu:~/Node_React_CRUD $ tree -L 2
+    ├── backend
+    │   ├── connection.js
+    |   ├── .env.sample
+    │   ├── index.js
+    │   ├── package.json
+    │   ├── package-lock.json
+    │   └── secret_manager.js
+    ├── db.sql
+    ├── frontend
+    │   ├── dist
+    │   ├── index.html
+    │   ├── package.json
+    │   ├── package-lock.json
+    │   ├── public
+    │   ├── src
+    │   └── vite.config.js
+    └── README.md
+```
 
 ## 🔧 Environment Variables
 
-Create a `.env` file in the root of your project and define the following environment variables:
+Create a `.env` file inside `backend` directory of your project from `.env.sample`:
 
-<pre><div class="mt-3 p-1"><div><code class="language-plaintext"><span>DB_HOST=
-</span>DB_USER=
-DB_PASSWORD=
-DB_NAME=
-DB_PORT=
-APP_PORT=3000
-</code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
+```
+APP_PORT=3000  
+
+### DB_HOST could be remote host, proxy or localhost URL but must me mysql
+DB_HOST= env-example-db.cfasdfasr34dsadc4.us-east-1.rds.amazonaws.com
+DB_PORT=3306
+DB_NAME=test_db
+
+### From where you want use Credentials
+#   Options Could be  
+#   1. from_secret  (to pass creds from aws secret)
+### 2. from_env  (to pass creds from env)
+
+CRED= from_secret
+
+### If you are Passing Credentials Directly from ENV
+DB_USER= test_user
+DB_PASSWORD= test_0000
+
+### If you are using AWS Secret Manager 
+AWS_REGION = us-east-1
+AWS_SECRET_NAME = test-secret-manager
+```
 
 ## 🚀 Running the Application
 
 ### Start the Backend Server
 
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">npm</span><span> start </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
+```bash
+    cd Node_React_CRUD 
+    cd backend
+    npm install
+    node app.js
+```
 
 ### Start the Frontend Development Server
 
-Navigate to the frontend directory and start the React development server:
-
-<pre><div class="mt-3 p-1"><div><code class="language-bash"><span class="token">cd</span><span> frontend
-</span><span></span><span class="token">npm</span><span> start
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
-
-The backend server runs on the port specified by `APP_PORT` (default is 3000), and the frontend development server typically runs on port 3000 unless configured otherwise.
+```bash
+    cd Node_React_CRUD 
+    cd frontend
+    npm install
+    npm start
+```
 
 ## 🌐 Backend Endpoints
 
@@ -81,29 +109,26 @@ The backend server runs on the port specified by `APP_PORT` (default is 3000), a
 * **URL:** `/create`
 * **Method:** `POST`
 * **Request Body:**
-
-<pre><div class="mt-3 p-1"><div><code class="language-json"><span class="token">{</span><span>
-</span><span></span><span class="token">"name"</span><span class="token">:</span><span></span><span class="token">"Student Name"</span><span class="token">,</span><span>
-</span><span></span><span class="token">"dob"</span><span class="token">:</span><span></span><span class="token">"YYYY-MM-DD"</span><span class="token">,</span><span>
-</span><span></span><span class="token">"result"</span><span class="token">:</span><span></span><span class="token">"Pass/Fail"</span><span>
-</span><span></span><span class="token">}</span><span>
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
-
+```
+  {
+      "name":"Student Name",
+      "dob":"YYYY-MM-DD",
+      "result":"Pass/Fail"
+  }
+```
 * **Response:** Success or error message
 
 ### Update a Student Record
-
 * **URL:** `/update/:id`
 * **Method:** `PUT`
 * **Request Body:**
-
-<pre><div class="mt-3 p-1"><div><code class="language-json"><span class="token">{</span><span>
-</span><span></span><span class="token">"name"</span><span class="token">:</span><span></span><span class="token">"Updated Student Name"</span><span class="token">,</span><span>
-</span><span></span><span class="token">"dob"</span><span class="token">:</span><span></span><span class="token">"YYYY-MM-DD"</span><span class="token">,</span><span>
-</span><span></span><span class="token">"result"</span><span class="token">:</span><span></span><span class="token">"Pass/Fail"</span><span>
-</span><span></span><span class="token">}</span><span>
-</span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="https://www.phind.com/search?cache=r0qp802lctaa81oupou8g6kd" rel="noreferrer"><h6 class="text-always-white"></h6></a></div></div></pre>
-
+```
+  {
+      "name":"Updated Student Name",
+      "dob":"YYYY-MM-DD",
+      "result":"Pass/Fail"
+  }
+```
 * **Response:** Success or error message
 
 ### Delete a Student Record
@@ -112,11 +137,23 @@ The backend server runs on the port specified by `APP_PORT` (default is 3000), a
 * **Method:** `DELETE`
 * **Response:** Success or error message
 
-## 💻 Frontend Components
+## 💻 Deployments
 
-* **Students Component:** Displays a list of all student records with options to add, update, and delete records.
-* **Add_Students Component:** Provides a form to add a new student record.
-* **Update_Student Component:** Provides a form to update an existing student record.
+```bash
+    sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove
+    sudo apt install nodejs@latest
+    sudo apt install npm
+    ## for Process management
+    sudo npm install pm2@latest -g 
+
+    ## for mysql
+    sudo apt install mysql-server mysql-client
+    ## for mariadb
+    sudo apt install mariadb-server mariadb-clieant
+
+    cd Node_React_CRUD/backend
+    pm2 start index.js --name="backend-api"
+```
 
 ## 📚 Dependencies
 
