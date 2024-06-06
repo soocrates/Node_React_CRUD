@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_URL from "./config";
 
 const Add_Students = () => {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ const Add_Students = () => {
       result
     };
 
-    axios.post('http://localhost:3000/create', studentData)
+    axios.post(`${API_URL}/create`, studentData)
       .then(res => {
         console.log(res);
         navigate('/', { state: { message: res.data.message || "Student record created successfully!", messageType: "success" } });
