@@ -3,12 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
+      - echo "Updating the package lists..."
+      - sudo apt-get update -y  # Update the package list
       - echo "Installing zip utility..."
-      - choco install zip -y  # Install zip utility using Chocolatey
+      - sudo apt-get install zip -y  # Install zip utility
+      - echo "Installing Node.js dependencies..."
+      - npm install  # Install Node.js dependencies listed in package.json
+
   build:
     commands:
       - echo "Building the code..."
-      - Compress-Archive -Path * -DestinationPath code.zip  # Zip the entire source code directory
+      - zip -r code.zip *  # Zip the entire source code directory
+
 artifacts:
   files:
     - code.zip  # Specify the zip file to be stored as an artifact
