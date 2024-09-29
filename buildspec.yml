@@ -2,22 +2,14 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 22.2
     commands:
-      - echo "Installing Backend Dependencies..."
-      - cd backend
-      - npm install
-
+      - echo "Installing zip utility..."
+      - choco install zip -y  # Install zip utility using Chocolatey
   build:
     commands:
-      - echo "Running Backend Build..."
-      - npm run build  # This assumes you have a build script in your package.json
-      - echo "Zipping Backend Application..."
-      - cd ..
-      - zip -r backend.zip backend/
-
+      - echo "Building the code..."
+      - Compress-Archive -Path * -DestinationPath code.zip  # Zip the entire source code directory
 artifacts:
   files:
-    - backend.zip
-  discard-paths: yes
+    - code.zip  # Specify the zip file to be stored as an artifact
+  discard-paths: yes  # Discard paths to store the zip directly in S3
