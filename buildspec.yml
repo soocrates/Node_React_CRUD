@@ -4,11 +4,6 @@ phases:
   install:
     commands:
       - echo "Updating the package lists..."
-      - sudo apt-get update -y  # Update the package list
-      - echo "Installing zip utility..."
-      - sudo apt-get install zip -y  # Install zip utility
-      - echo "Installing Node.js dependencies..."
-      - npm install  # Install Node.js dependencies listed in package.json
 
   build:
     commands:
