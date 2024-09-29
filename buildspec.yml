@@ -8,46 +8,12 @@ phases:
       - echo "Installing Backend Dependencies..."
       - cd backend
       - npm install
-      - echo "Installing Frontend Dependencies..."
-      - cd ../frontend
-      - npm install
-
-  pre_build:
-    commands:
-      - echo Running Backend Security Audit...
-      - cd ../backend
-      - npm audit --audit-level=high || true
-      - echo Running Frontend Security Audit...
-      - cd ../frontend
-      - npm audit --audit-level=high || true
 
   build:
     commands:
-      - echo "Building Frontend..."
-      - cd frontend
-      - npm run build
-      - echo "Starting Backend..."
-      - cd ../backend
-      - node index.js
+      - echo "Zipping Backend Application..."
+      - zip -r backend.zip .
 
-  build:
-    commands:
-      - echo Building Frontend...
-      - cd frontend
-      - npm run build
-      - echo Starting Backend...
-      - cd ../backend
-      - pm2 start index.js --name "backend-api"
-      
-  post_build:
-    commands:
-      - echo Build completed on `date`
 artifacts:
   files:
-    - '**/*'
-  discard-paths: no
-
-cache:
-  paths:
-    - backend/node_modules/**/*
-    - frontend/node_modules/**/*
+    - backend.zip
