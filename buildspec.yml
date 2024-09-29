@@ -2,16 +2,13 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 22.2
     commands:
-      - echo Installing Node.js v22.2.0...
-      - nvm install 22.2.0
-      - nvm use 22.2.0
-      - node -v  # Verifying Node.js version
-      - npm -v   # Verifying npm version
-      - echo Installing Backend Dependencies...
+      - echo "Installing Backend Dependencies..."
       - cd backend
       - npm install
-      - echo Installing Frontend Dependencies...
+      - echo "Installing Frontend Dependencies..."
       - cd ../frontend
       - npm install
 
@@ -23,6 +20,16 @@ phases:
       - echo Running Frontend Security Audit...
       - cd ../frontend
       - npm audit --audit-level=high || true
+
+  build:
+    commands:
+      - echo "Building Frontend..."
+      - cd frontend
+      - npm run build
+      - echo "Starting Backend..."
+      - cd ../backend
+      - node index.js
+
   build:
     commands:
       - echo Building Frontend...
@@ -31,6 +38,7 @@ phases:
       - echo Starting Backend...
       - cd ../backend
       - pm2 start index.js --name "backend-api"
+      
   post_build:
     commands:
       - echo Build completed on `date`
