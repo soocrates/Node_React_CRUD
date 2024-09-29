@@ -11,9 +11,13 @@ phases:
 
   build:
     commands:
+      - echo "Running Backend Build..."
+      - npm run build  # This assumes you have a build script in your package.json
       - echo "Zipping Backend Application..."
-      - zip -r backend.zip .
+      - cd ..
+      - zip -r backend.zip backend/
 
 artifacts:
   files:
     - backend.zip
+  discard-paths: yes
