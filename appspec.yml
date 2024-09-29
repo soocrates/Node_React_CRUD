@@ -1,0 +1,5 @@
+version: 0.0
+os: linux
+files:
+  - source: code.zip
+    destination: /home/ssm-user/  # This is where the code.zip file will be stored on your instance
