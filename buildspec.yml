@@ -8,9 +8,11 @@ phases:
   build:
     commands:
       - echo "Building the code..."
-      - zip -r code.zip *  # Zip the entire source code directory
+      - echo "Zipping the source code..."
+      - zip -r code.zip *  # Zip the entire source code directory, including appspec.yml
 
 artifacts:
   files:
-    - code.zip  # Specify the zip file to be stored as an artifact
+    - appspec.yml  # Ensure appspec.yml is at the top level of the S3 artifact
+    - code.zip     # Also upload the code.zip as part of the artifact
   discard-paths: yes  # Discard paths to store the zip directly in S3
