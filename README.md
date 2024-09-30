@@ -173,3 +173,4 @@ AWS_SECRET_NAME = test-secret-manager
 ## 🛠️ Contributing
 
 Contributions are welcome Please feel free to submit a pull request or open an issue if you encounter any problems.
+Appsec and Build Spec are yet to be uploaded
